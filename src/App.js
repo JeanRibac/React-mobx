@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import { StoreProvider } from "./mobx/BugsStore/store"
+import { BugsList } from "./components/BugsList/BugsList.component"
+import { BugsForm } from "./components/BugsForm/BugsForm.component"
+import { BugsHeader } from "./components/BugsHeader/BugsHeader.component"
 import './App.css';
+
+// const StoreContext = React.createContext();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StoreProvider>
+      <main>
+        <BugsHeader />
+        <BugsList />
+        <BugsForm />
+      </main>
+    </StoreProvider>
   );
 }
 
